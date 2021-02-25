@@ -1,0 +1,19 @@
+<html>
+    <body>
+
+        <script src="./eventEmitter.js"></script>
+        <script>
+            const eventEmit = new EventEmitter();
+            // 1、
+            eventEmit.on('zzz', (res) => {
+                console.log('zzz', res);
+            });
+            setTimeout(() => {
+                eventEmit.emit('zzz', '就是她');
+            }, 1000);
+            setTimeout(() => {
+                eventEmit.emit('zzz', '就是她');
+            }, 2000)
+        </script> 
+    </body>
+</html>
