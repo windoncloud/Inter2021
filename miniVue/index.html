@@ -1,0 +1,55 @@
+<!-- https://www.cnblogs.com/wangxirui/p/14049580.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div @click="getValue">
+      <p k-text="inputData"></p>
+    </div>
+    <p @click="getValue">阿斯加德八级考试{{ form.test }}你很快就发{{ form.test }}{{ obj.a.c }}</p>
+    <p>{{ inputData }}</p>
+    <input :value="inputData" @input="setInput" />
+  </div>
+</body>
+<!-- 浏览器不支持es6语法 -->
+<script src="./kvue.js"></script>
+<script>
+  new Kvue({
+    el: 'app',
+    data: {
+      form: {
+        test: '1124dsa'
+      },
+      inputData: '',
+      test: 111,
+      obj: {
+        a:{
+          c:3
+        }
+      }
+    },
+    watch: {
+      inputData(val) {
+        console.log(val)
+      }
+    },
+    created(){
+      console.log(this.test)
+      console.log(this.obj)
+    },
+    methods: {
+      getValue() {
+        console.log(this)
+      },
+      setInput(event) {
+        this.inputData =  event.target.value
+      }
+    }
+  })
+</script>
+</html>
